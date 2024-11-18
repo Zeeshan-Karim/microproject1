@@ -1,0 +1,37 @@
+[
+  {
+      "id": 1,
+      "name": "Marshall Stockwell II",
+      "price": 199,
+      "features": [
+          "Bluetooth 5.0 connectivity",
+          "Compact and portable",
+          "Customizable sound with the Marshall app"
+      ],
+      "image": "images/WOBURN 2.jpg"
+  },
+  {
+      "id": 2,
+      "name": "Marshall Stanmore II",
+      "price": 349,
+      "features": [
+          "Bluetooth 5.0 and Wi-Fi connectivity",
+          "Multi-room capabilities",
+          "Customizable sound with the Marshall app",
+          "Up to 20 hours of battery life"
+      ],
+      "image": "images/STANMORE.jpg"
+  },
+  {
+      "id": 3,
+      "name": "Marshall Woburn II",
+      "price": 499,
+      "features": [
+          "Bluetooth 5.0 connectivity",
+          "Powerful sound with dual 5.25\" woofers",
+          "Classic Marshall design with brass details",
+          "Up to 20 hours of battery life"
+      ],
+      "image": "images/WOBURN 2.jpg"
+  }
+]

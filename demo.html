@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Demo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/LOGO.png" alt="Marshall logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Product</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="product-details">
+            <h2>Product Details</h2>
+            <button id="fetch-data">Fetch Data</button>
+            <div id="product-info"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Marshall Speaker. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        async function fetchData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');  // Get the product ID from the URL
+
+            try {
+                const response = await fetch(`/api/products/${productId}`);
+                if (!response.ok) throw new Error("Failed to fetch data");
+
+                const data = await response.json();
+                displayProduct(data);
+            } catch (error) {
+                console.error("Error fetching product:", error);
+            }
+        }
+
+        function displayProduct(product) {
+            const productInfo = document.getElementById("product-info");
+
+            productInfo.innerHTML = `
+                <h3>${product.name}</h3>
+                <img src="${product.image}" alt="${product.name}">
+                <p><strong>Price:</strong> $${product.price}</p>
+                <ul>
+                    <li>${product.features[0]}</li>
+                    <li>${product.features[1]}</li>
+                    <li>${product.features[2]}</li>
+                </ul>
+            `;
+        }
+
+        document.getElementById("fetch-data").addEventListener("click", fetchData);
+    </script>
+</body>
+</html>
